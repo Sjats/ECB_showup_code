@@ -1,0 +1,800 @@
+\documentclass{article}
+\usepackage[12pt, a4paper, top = 2cm, left = 2.5cm, right = 2.5cm, bot = 0cm]{geometry}
+\usepackage[utf8]{inputenc}
+\usepackage{amsmath}
+\usepackage{eurosym}
+
+\usepackage[T1]{fontenc}
+\usepackage[french]{babel}
+\usepackage{graphicx}
+\usepackage{caption}
+\usepackage{float}
+\usepackage{multirow}
+\usepackage{blindtext}
+\usepackage{hyperref}
+\usepackage[a4paper, top=2cm,bottom=2cm,margin=3cm, left=2.6cm, right=2.6cm]{geometry}
+\usepackage{setspace}
+\usepackage{array}
+\newcolumntype{P}[1]{>{\centering\arraybackslash}p{#1}}
+\usepackage{colortbl}
+\usepackage{graphicx}
+\usepackage{subcaption}
+\usepackage{blindtext}
+\usepackage{titlesec}
+\usepackage{subcaption}
+\usepackage{booktabs}
+\captionsetup[subfigure]{margin=40pt}
+\captionsetup[subfigure]{skip=3pt, font=small, singlelinecheck=off}
+
+\begin{document}
+
+\normalsize
+
+\begin{titlepage}
+\begin{center}
+\includegraphics[width=0.7\textwidth]{ensai_logo.png}\\[2.0 cm] 
+
+
+
+\rule{\linewidth}{0.4mm}
+\\[0.4cm]{\Large\bfseries \Large{Étude sur le lien entre qualité de vie et habitudes de consommation}}\\[0.2cm]
+\rule{\linewidth}{0.4mm}\\[3cm]
+
+
+\begin{flushleft} \large
+\emph{\underline{Étudiants:}}\\\vspace{0.2cm}
+Antoni \textsc{Guàrdia Sanz} \\
+Amre \textsc{Loukhnati} \\
+Benjamin \textsc{ Mackman}\\
+\end{flushleft}
+
+\begin{flushright} \large
+\emph{\underline{Tuteur:}} \\ \vspace{0.2cm}
+Roland \textsc{Donat} \\ \vspace{0.6cm}
+\end{flushright}
+
+\vfill
+{\large \today}
+\end{center}
+\end{titlepage}
+
+\onehalfspacing
+
+
+
+
+
+
+\newpage
+\tableofcontents 
+\newpage
+\section{Introduction}
+\subsection{Introduction du sujet}
+La qualité de vie est un terme large qui regroupe plusieurs aspects. Selon l'organisation mondiale de la santé (OMS) elle est définie comme la perception qu’un individu a de sa place dans la vie en relation avec ses objectifs, ses attentes, ses normes et ses inquiétudes. Elle peut être influencée par la santé physique du sujet, son état psychologique, son niveau d’indépendance, ses relations sociales et sa relation avec son environnement comme semble indiquer l'article \cite{article3}.
+La manière dont nous dépensons, ce que nous choisissons d'acheter et nos comportements d'achat peuvent influencer notre satisfaction et notre épanouissement dans divers domaines de la vie.  
+Dans le cadre de cette étude, l'accent sera mis sur l'exploration du rôle de la consommation d'alcool dans la qualité de vie des jeunes. La publication \cite{article1} aborde les risques immédiats tels que les comportements sexuels, la violence, les accidents de la route, les hospitalisations et les comas éthyliques, ainsi que les implications sur la santé mentale causées par la consommation d'alcool. En outre, elle examine les risques à long terme, notamment les impacts cérébraux, les pathologies associées à l'âge adulte et le coût social significatif. L'auteur se penche aussi sur les motifs de consommation et les contextes d’usage, mettant en lumière l’attrait des jeunes pour l’alcool, selon la littérature et les résultats d’analyses statistiques.
+
+En explorant ces articles, l'objectif est de percevoir la nature des interactions entre les habitudes de consommation d'alcool et la qualité de vie. On peut supposer que les choix de consommation ne sont pas uniquement des actes économiques, mais des facteurs importants pour notre bien-être. Ainsi, nous chercherons à répondre à la question suivante : Comment caractériser la consommation d'alcool chez les jeunes et comment celle-ci est-elle corrélée à la qualité de vie ?
+
+\subsection{Présentation Base de données}
+L'Enquête sur la santé et les consommations lors de la Journée d'appel et de préparation à la défense (ESCAPAD) est menée auprès des jeunes français âgés de 17 à 19 ans lors de la Journée défense et citoyenneté. Elle vise à examiner en détail les habitudes de consommation de substances psychoactives telles que le tabac, l'alcool et le cannabis, tout en explorant également leur engagement dans des activités telles que les jeux d'argent et de hasard, ainsi que les jeux vidéo. 
+L'objectif principal de cette enquête est d'analyser les caractéristiques individuelles associées à ces comportements de consommation. Cela inclut des aspects tels que la situation scolaire, le redoublement éventuel, la situation familiale et la Profession et Catégorie Sociale (PCS) des parents. En recueillant ces données, l'ESCAPAD aspire à fournir une compréhension approfondie des facteurs influençant les comportements de consommation chez les jeunes, permettant ainsi de mieux orienter les politiques de santé et de prévention.
+Dans cette étude, les données de l'enquête menée en 2017 sont utilisées, à laquelle 39 915 jeunes ont participé. Dans le cadre de cette étude, un intérêt particulier est porté sur le module B, qui traite des consommations d’alcool ainsi que de la publicité liée aux boissons alcoolisées, et comprend 13 314 répondants.
+\subsection{Hypothéses d'Analyse}
+
+La notion de qualité de vie demeure vague et subjective.  Néanmoins, dans le cadre de cette étude, la qualité de vie d’une personne sera étudiée en prenant en considération trois critères : l’état de santé, la situation économique personnelle et le milieu sociale: 
+\begin{itemize}
+    \item \textbf{L'état de santé} d’un individu fait référence à la condition physique et mentale globale de cette personne. Cela englobe non seulement l’absence de maladies ou de problèmes de santé, mais aussi le bien-être émotionnel.
+    \item \textbf{La situation économique personnelle} d'un individu se réfère à sa position financière et à la manière dont il gère et reçoit ses ressources économiques. Cela inclut des aspects tels que le revenu, le type d'emploi, les dettes, les dépenses, l'épargne et la stabilité financière.
+    \item \textbf{L'intégration sociale} se réfère au degré auquel un individu fait partie de la société et est impliqué dans ses divers aspects. Cela englobe la participation à des réseaux sociaux, l'interaction avec la communauté, l'engagement civique, et le sentiment d'appartenance à un groupe plus large.
+\end{itemize}
+\vspace{0.5cm}
+
+\section{Consommation d'Alcool}
+Dans le cadre de cette analyse des habitudes de consommation, l'attention est portée sur la variable qualitative Q19C, qui indique la fréquence de consommation d'alcool par mois. Cette variable comporte plusieurs modalités regroupant le nombre de consommations d'alcool par mois. Pour rendre la variable plus lisible, les modalités sont regroupées selon le tableau ci-dessous (\ref{tab:reg-al}).
+\begin{table}[H]
+    \centering
+    \begin{tabular}{l|l}
+        \toprule
+        \textbf{Type de consommation alcool} & \textbf{Modalités variable Q19C} \\
+        \midrule
+        Abstention & "0 fois" \\
+        Modérée & "1-2 fois", "3-5 fois" \\
+        Elevée & "6-9 fois", "10-19 fois", "20-30 fois" et "plus de 30
+fois" \\
+
+        \bottomrule
+    \end{tabular}
+    \caption{Régroupement des modalités de la variable Q19C, consommation d'alcool dans le mois}
+    \label{tab:reg-al}
+
+\end{table}
+
+\begin{figure}[H]
+\centering
+  
+    \includegraphics[width=0.8\textwidth]{derniers_graphs/intro/rep_alcool.png}
+    
+  \caption{Répartition des habitudes de consommation d'alcool}
+  \subcaption*{Champ : Jeunes français âgés de 17 à 19 ans. \\
+  Note de Lecture : Un 50\% des enquêtés présentent une consommation modérée d'alcool. \\
+             Source : Enquête ESCAPAD 2017.}
+  \label{fig:ecofig1}
+    
+\end{figure}
+
+Dans la figure (\ref{fig:ecofig1}), la plupart des individus étudiés présentent une consommation d'alcool modérée ou nulle. Cependant, plus de 15\% des enquêtés ont une consommation d'alcool élevée. Ainsi, la consommation de grandes quantités d'alcool constitue un problème au sein des jeunes français âgés de 17 à 19 ans. Par la suite, l'étude portera sur quels phénomènes qui influencent la consommation d'alcool. 
+
+\newpage
+
+\section{Les Relations Entre Santé et Consommation d'Alcool}
+Dans cette partie, une possible corrélation entre la consommation d'alcool et les problèmes de santé, qu'ils soient physiques ou psychologiques, sera étudiée. Pour évaluer la santé physique de la population, la variable quantitative Q12 sera utilisée pour décrire l'évaluation que font les individus de leur état de santé. En ce qui concerne la santé physique, les variables quantitatives Q13A et Q13B seront utilisées pour fournir respectivement la taille et le poids des enquêtés. Enfin, la variable qualitative Q16A sera étudiée pour témoigner de l'état psychologique des enquêtés.
+\subsection{État de Santé Perçu et son Impact sur la Consommation d'Alcool}
+Pendant la phase d’enquête, il est demandé aux enquêtés d'évaluer leur état de santé. Même s'ils ne sont pas parfaitement objectifs pour évaluer leur état de santé, cette modalité nous donne des informations par rapport à leur perception de celui-ci. Cette variable est composé en quatre modalités : « pas du tout satisfaissant », « pas satisfaissant », « plutôt satisfaisant » et « très satisfaisant ». Afin de limiter la subjectivité des individus et rendre les varaibles plus robustes, on réduit les modalités en deux :   « pas satisfaissant », « satisfaisant », dont on observe la répartition en (\ref{fig:santefig4})
+
+\begin{figure}[H]
+  \centering
+  \includegraphics[width=0.75\textwidth]{derniers_graphs/sante/rep_etat_sante.png} 
+  \caption{Répartition de l'état de santé perçu}
+  \subcaption*{Champ : Jeunes français âgés de 17 à 19 ans. \\
+ Note de Lecture : Plus de 80 \% des enquêtés pensent avoir un bon état de santé. \\
+             Source : Enquête ESCAPAD 2017.}
+  \label{fig:santefig4}
+\end{figure}
+
+Il ressort de la figure (\ref{fig:santefig4}) que plus du 80\% des individus ne se perçoivent pas comme étant en mauvaise santé. Ensuite, une éventuelle corrélation entre cette variable et la consommation d'alcool est examinée. Voici le tableau croisant la consommation d'alcool et l'état de santé :
+
+\begin{figure}[H]
+  \centering
+  \includegraphics[width=0.75\textwidth]{derniers_graphs/sante/tab_etatsante.png} 
+  \caption{Tableau croisé de l'état de santé perçu en fonction de la consommation d'alcool}
+
+  \subcaption*{Champ : Jeunes français âgés de 17 à 19 ans. \\
+             Note de Lecture : Parmi les individus ayant un mauvais état de santé, un 45\% d'entre eux à une consommation d'alcool modérée. \\
+             Source : Enquête ESCAPAD 2017.}
+  \label{fig:santefig5}
+\end{figure}
+
+ Dans la figure (\ref{fig:santefig5}) les variables présentent une association relativement faible entre elles. Néanomins, les individus ayant un mauvais état de santé sont surreprésentés dans les modalités extrêmes de consommation d'alcool. Ainsi, il semblerait que chez les individus enquêtés, leur état de santé influence peu la consommation d’alcool, et il n'est pas clair dans quel sens le fait il. 
+
+
+\subsection{État de Santé Physique et Consommation d'Alcool}
+L'obésité est caractérisée par un excès de masse grasse. Cette condition, souvent résultante d'une alimentation déséquilibrée ou d'une sédentarité accrue, est associée à un risque de plusieurs maladies. L'IMC est un coefficient permettant d'évaluer le niveau d'obésité d'une personne (tableau \ref{imcong}). Il est calculé en divisant le poids en kilogrammes par le carré de la taille en mètres (formule \ref{formuleImc}). Dans cette analyse, nous examinerons la distribution de l'IMC au sein de notre population et comment celui-ci peut être corrélé à une consommation d'alcool plus ou moins élevée.
+
+\begin{equation}
+    \text{IMC} = \frac{\text{Poids (kg)}}{\text{Taille (m)}^2}
+    \label{formuleImc}
+\end{equation}
+
+\begin{table}[H]
+    \centering
+    \begin{tabular}{lc}
+        \toprule
+        \textbf{IMC} & \textbf{Catégorie} \\
+        \midrule
+        Moins de 18,5 & Maigreur \\
+        18,5 à 24,9 & Poids normal \\
+        25 à 29,9 & Surpoids \\
+        30 ou plus & Obésité \\
+        \bottomrule
+    \end{tabular}
+    \caption{Catégories de l'indice de masse corporelle selon l'OMS}
+    \label{imcong}
+
+\end{table}
+
+
+\begin{figure}[H]
+  \centering
+  \includegraphics[width=0.8\textwidth]{Partie Santé/Distribution_IMC.png} 
+  \caption{Distribution de l'IMC par catégorie de poids}
+  \subcaption*{Champ : Jeunes français âgés de 17 à 19 ans. \\
+             Note de Lecture : Environ un 15\% de la population a un IMC de 20, selon l'OMS, ils ont un poids normal. \\
+             Source : Enquête ESCAPAD 2017.}
+  \label{fig:santefig1}
+\end{figure}
+Dans la figure (\ref{fig:santefig1}), la plupart des individus ont un poids normal. De plus, il est remarqué que très peu d'individus sont présents dans la catégorie d'obésité. Pour simplifier l'étude, le regroupement décrit dans le tableau (\ref{monimc}) sera utilisé.
+
+
+\begin{table}[H]
+    \centering
+    \begin{tabular}{lc}
+        \toprule
+        \textbf{IMC} & \textbf{Catégorie} \\
+        \midrule
+        Entre 18,5 et 24,9 & Poids normal \\
+        Moins de 18,5 ou plus de 25 & Problème de poids \\
+        \bottomrule
+    \end{tabular}
+    \caption{Catégories de l'IMC utilisées dans l'étude}
+    \label{monimc}
+
+\end{table}
+
+Ensuite, l'effet de la catégorie d'IMC sur la consommation d'alcool est examiné. Dans le tableau croisé (\ref{fig:santefig2}), les modalités de consommation d'alcool sont observées en fonction des catégories d'IMC.
+
+\vspace{0.5cm}
+\begin{figure}[H]
+  \centering
+  \includegraphics[width=0.7\textwidth]{derniers_graphs/sante/tab_imc.png} 
+  \caption{Tableau croisé des catégories d'IMC en fonction de la consommation d'alcool}
+  \subcaption*{Champ : Jeunes français âgés de 17 à 19 ans. \\
+             Note de Lecture : Parmi les individus ayant un poids normal, un 51\% d'entre eux à une consommation d'alcool modérée. \\
+             Source : Enquête ESCAPAD 2017.}
+  \label{fig:santefig2}
+\end{figure}
+
+Dans la figure (\ref{fig:santefig2}), une association relativement faible entre les variables de consommation d'alcool et l'IMC est observée. Contrairement à ce que stipule l'article \cite{article7}, les personnes ayant des problèmes de poids tendent à consommer moins d'alcool par rapport à celles qui n'en ont pas. Il semble donc que la consommation d'alcool n'ait pas de corrélation directe avec l'IMC chez les individus interrogés. Cependant, il est important de noter que la nouvelle variable regroupe plusieurs modalités en une seule, ce qui peut altérer les résultats. 
+
+
+\subsection{État de Santé Psychologique et sa Relation avec la Consommation d'Alcool}
+Un état mental sain est fondamental pour une vie équilibrée selon l'OMS. C'est pour cela, que dans cette section on s'intéresse à la variable décrivant la présence de pensées suicidaires. Elle est composé de trois modalités :  « Non »,  « Oui, une fois » et  «  « Oui, plusieurs fois ». On a décidé de regrouper les modalités  « oui, une fois » et « Oui, plusieurs fois » en une seule dû au faible nombre de réponses positives et ainsi avoir une modalité plus robuste dont on observe la repartition dans (\ref{fig:penssuicide12}).
+
+\begin{figure}[H]
+\centering
+ 
+    \includegraphics[width=0.7\textwidth]{derniers_graphs/sante/rep_suicide.png}
+ 
+  \caption{Répartition de la présence de Pensées Suicidaires chez les enquêtés}
+  \subcaption*{Champ : Jeunes français âgés de 17 à 19 ans. \\
+  Note de Lecture : Plus de 80 \% des enquêtés n'ont pas des pensées suicidaires.
+            \\
+Source : Enquête ESCAPAD 2017.}
+  \label{fig:penssuicide12}
+    
+\end{figure}
+
+Existe-t-il une corrélation entre les pensées de suicidaires et la consommation d'alcool chez nos individus? 
+Voici le tableau croisant la consommation d'alcool et les pensées suicidaires:
+
+\begin{figure}[H]
+\centering
+\includegraphics[width=0.67\textwidth]{derniers_graphs/sante/tab_suicide.png}
+  \caption{ Tableau croisé des pensées suicidaires en fonction de la consommation d'alcool}
+  \subcaption*{Champ : Jeunes français âgés de 17 à 19 ans. \\
+             Note de Lecture : Parmi les individus ayant des pensées suicidaires, un 51\% d'entre eux à une consommation d'alcool modérée. \\
+             Source : Enquête ESCAPAD 2017.}
+  \label{fig:sante3}
+\end{figure}
+
+Dans la figure (\ref{fig:sante3}), un lien faible est constaté entre la présence de pensées suicidaires et une majeure consommation d'alcool. Par exemple, les individus ayant des pensées suicidaires sont surreprésentés dans la modalité de consommation élevée, avec un écart de 3 \% par rapport à ceux qui n'en ont pas. De même, l'absence de consommation d'alcool est à une sous-représentation de 6 \% chez les individus ayant des pensées suicidaires.
+
+
+
+\subsection{Conclusion}
+
+Contrairement aux attentes formulées dans l'article \cite{article1} et aux résultats documentés dans notre revue de littérature, les données analysées suggèrent qu’il n’existe pas de corrélation directe entre la consommation d’alcool et la santé physique des individus étudiés. 
+
+Cette absence d’association peut être due à la nature des enquêtés. En effet, il s'agit de jeunes étudiants âgés entre 17 et 19 ans, et les maladies liées à l'alcool tendent à se manifester bien plus tard dans l'âge adulte. D'autre part, cette homogénéité de l'âge pourrait aussi se traduire par une homogénéité des habitudes de consommation, en raison de nombreuses causes telles que le contrôle des parents, la dépendance économique, ou l'impossibilité d'accéder légalement à l'alcool, entre autres. En ce qui concerne l'état de santé mentale, les questions relatives au suicide pourraient être particulièrement délicates à aborder pour les répondants. Il est donc possible que certains candidats choisissent de mentir ou d'éviter de répondre à ces questions.
+
+
+\section{Économie Personnelle et Habitudes de Consommation d'Alcool}
+L'objectif de cette section est d'explorer l'éventuel lien entre la consommation d'alcool et le niveau économique des enquêtés. Pour commencer, nous nous attarderons sur l'analyse de l'influence quantitative des diverses modalités des variables de revenu, telles que le salaire de stage (A08D2), les occasions particulières (A08C2), la rémunération du travail (A08B2) et l'argent de poche (A08A2). Dans un deuxième temps, nous examinerons l'impact de la principale source de revenu sur la consommation d'alcool.
+
+\subsection{Impact Financier du Revenu sur la Consommation d'Alcool}
+Dans un premier temps, nous nous penchons sur la distribution des variables qualitatives de revenu.
+
+\begin{figure}[H]
+  \centering
+  \includegraphics[width=0.556\textwidth]{partie eco/Rep-sal.png} 
+  \caption{Répartition des montants en euros des differentes sources de revenu}
+  \subcaption*{Champ : Jeunes français âgés de 17 à 19 ans. \\
+Note de Lecture : Les salaires se situent principalement entre 300 et 600 \euro, avec un salaire médian d'environ 550 \euro.
+  \\           Source : Enquête ESCAPAD 2017.}
+  \label{fig:ecofig4}
+\end{figure}
+
+Dans la figure (\ref{fig:ecofig4}), la source de revenu contenant les plus grosses sommes d'argent est le salaire provenant d'un emploi, bien que ses valeurs soient très dispersées. En revanche, les trois autres sources de revenu telles que l'argent de poche, les occasions ponctuelles et les stages contribuent de manière marginale à la situation financière globale de ces individus. Cette observation suggère que la majorité des individus ne sont pas économiquement indépendants, ce qui s'explique par le fait que plus de 90 \% d'entre eux sont des lycéens (voir la figure \ref{fig:sociofig3}). Regardons comment les montants des revenus influencent la consommation d'alcool.
+
+\begin{figure}[H]
+  \centering
+  \includegraphics[width=\textwidth]{aaaa.png} 
+  \caption{Répartition du revenu en fonction de la consommation d'alcool}
+  \subcaption*{Champ : Jeunes français âgés de 17 à 19 ans. \\
+Note de Lecture : Les salaires des individus ne consommant pas d'alcool se situent principalement entre 200 et 600 \euro, avec un salaire médian d'environ 400 \euro.
+  \\
+             Source : Enquête ESCAPAD 2017.}
+  \label{fig:ecofig6}
+\end{figure}
+%Mirar interpretació
+La répartition observée du revenu en fonction de la consommation d'alcool dans la figure (\ref{fig:ecofig6}), indique qu'indépendamment du type de revenu, la répartition des revenus est assez similaire pour toutes les formes de consommation d'alcool. Cependant, on observe que pour les consommations elevées d'alcool, la répartition est centrée sur des valeurs médianes plus  élevées. Cette observation peut s'expliquer par une corrélation positive entre le montant d'argent perçu et une augmentation de la consommation d'alcool.
+\subsection{Influence de la Principale Source de Revenu sur les Habitudes de Consommation d'Alcool}
+Dans cette séction, il est proposé d'analyser comment la principale source de revenu est liée à la consommation d'alcool. Pour ce faire, cette nouvelle variable qualitative est calculée comme suit : \\
+\begin{equation}
+    \text{Revenu principal} = maxind(\text{Arg. de Poche},\text{Rém. Stage},\text{Arg. Occa.},\text{Salaire}, 0)
+\end{equation}
+Où $maxind$ est une fonction de $\mathbb{R}^5 \longrightarrow \left[ \left[1,5\right] \right]$ qui à un vecteur de $\mathbb{R}^5$ associe la position où se trouve la coordonnée la plus élevée. Par exemple, 
+$maxind((15,2,5,100,0)) = 4$
+Analysons cette nouvelle variable : 
+\begin{figure}[H]
+  \centering
+  \includegraphics[width=0.75\textwidth]{derniers_graphs/eco/rep_revenu.png} 
+  \caption{Répartition de la principale source de revenu}
+  \subcaption*{Champ : Jeunes français âgés de 17 à 19 ans. \\
+Note de Lecture : Un 40 \% des enquêtés ont comme source principale de revenu l'argent de poche. 
+\\Source : Enquête ESCAPAD 2017.}
+  \label{fig:ecofig7}
+\end{figure}
+
+\begin{figure}[H]
+  \centering
+  \includegraphics[width=0.75\textwidth]{derniers_graphs/eco/tab_revenu.png} 
+  \caption{Tableau croisé de la principale source de revenu en fonction de la consommation d'alcool}
+\subcaption*{Champ : Jeunes français âgés de 17 à 19 ans. \\
+             Note de Lecture : Parmi les individus percevant une rémunération salariale, un 47\% d'entre eux à une consommation d'alcool modérée. \\
+             Source : Enquête ESCAPAD 2017.}
+  \label{fig:ecofig8}
+\end{figure}
+Dans la figure (\ref{fig:ecofig8}), il est observé que les principales sources de revenu sont l'argent de poche et l'argent occasionnel, comme cela a été constaté dans la figure (\ref{fig:ecofig4}). En ce qui concerne la relation avec la consommation figurée (\ref{fig:ecofig7}), on remarque que les individus dont la principale source de revenu est le salaire de travail et la rémunération des stages ont tendance à consommer davantage d'alcool, tandis que ceux qui n'ont pas de revenu consomment nettement moins d'alcool.
+\subsection{Conclusion}
+Les résultats suggèrent que les jeunes de 17 à 19 ans ont des habitudes de consommation d'alcool qui varient en fonction du type de revenu. En effet, on constate qu'indépendamment du montant du revenu la consommation varie peu, par contre, on a aboservé des écarts notables quand on s'intèressait à la source du revenu. C'est pour cela, que dans la suite on utilisera la variable « principale source de revenus » pour s'intéresser à l'aspect économique de notre population. 
+
+Le fait de percevoir un certain type de revenu à cet âge, peut-être influencer par le milieu social de provenance, par exemple, on pourrait penser que les familles à faibles revenus tendent à faire pression sur leurs enfants à finir rapidement leurs études afin qu'ils puissent ramener de l'argent au foyer. C'est pour cela, que dans la section qui suit, nous analysons comment le milieu social peut influenceur les habitudes de consommation.
+
+
+
+\section{Influence du Milieu Social sur les Habitudes de Consommation d'Alcool }
+
+Le niveau économique et le type de revenu influent sur la consommation d'alcool, comme observé dans la section précédente. Ces données sont souvent associées au milieu social des individus. Ainsi, cette section se focalise sur l'exploration de la corrélation entre le secteur d'activité du père et la consommation d'alcool.
+\subsection{Effets du Statut de Lycéen sur la Consommation d'Alcool}
+L'éducation est reconnue comme un indicateur du milieu social d'un individu, par exemple l'UNESCO utilise des indicateurs éducatifs pour évaluer le développement social et économique à l'échelle mondiale. En effet, l'éducation façonne les perspectives et les compétences acquises par un individu, jouant ainsi un rôle crucial dans la détermination de la position sociale d'un individu dans la société. \\
+Pour obtenir des variables plus robustes, les individus non lycéens seront regroupés dans une catégorie appelée "formation".
+
+\begin{figure}[H]
+\centering
+  
+    \includegraphics[width=0.75\textwidth]{derniers_graphs/social/rep_situation.png}
+    \caption{Répartition de la Situation des Individus}
+    \label{fig:sociofig3}
+    \subcaption*{Champ : Jeunes français âgés de 17 à 19 ans. \\
+    Note de Lecture : Un 80 \% des enquêtés sont des lycéens. \\
+             Source : Enquête ESCAPAD 2017.}
+    
+\end{figure}
+
+Dans la Figure (\ref{fig:sociofig3}), il est remarqué que plus de 80 \% de la population étudiée fréquente le lycée, probablement en raison de l'âge des enquêtés, situé entre 17 et 19 ans.
+
+\begin{figure}[H]
+  \centering
+  \includegraphics[width=0.75\textwidth]{derniers_graphs/social/tab_situation.png} 
+  \caption{Tableau croisé de la situation des individus en fonction de la consommation d'alcool}
+  \subcaption*{Champ : Jeunes français âgés de 17 à 19 ans. \\
+             Note de Lecture : Parmi les individus lycéens, un 50\% d'entre eux à une consommation d'alcool modérée. \\
+             Source : Enquête ESCAPAD 2017.}
+  
+
+  \label{fig:sociofig2}
+\end{figure}
+Une différence de consommation d'alcool est remarquée entre les lycéens et les non-lycéens, avec une tendance à une consommation moindre chez les premiers. Cette disparité pourrait être attribuée à plusieurs facteurs, tels qu'une plus grande indépendance, que ce soit sur le plan financier ou géographique, chez les jeunes non scolarisés par rapport à leurs pairs. De plus, les étudiants en études supérieures bénéficient souvent de davantage de temps libre et de flexibilité dans leur emploi du temps, surtout s'ils sont déjà émancipés. Par ailleurs, il est possible que la sensibilisation à la consommation d'alcool soit moindre chez les non-lycéens, peut-être parce que les campagnes de sensibilisation à ce sujet se déroulent généralement au lycée.
+
+
+
+\subsection{Influence du Secteur d'Activité du Père sur la Consommation d'Alcool}
+La famille et les parents jouent un rôle dans la construction du milieu social de leurs enfants comme semble indiqué \cite{article6}. En effet, l'environnement familial, les valeurs inculquées et les ressources disponibles contribuent de manière significative à façonner les perspectives et les opportunités des individus. Les parents transmettent non seulement des aspects culturels, éducatifs et économiques, mais ils agissent également en tant que modèles pour leurs enfants, influençant ainsi leurs aspirations et leurs choix de vie.
+
+La variable qualitative Q10A1 fournit la catégorie socio-professionnelle (PCS) du père de chaque individu. Il est supposé ici que cette variable est un indicateur suffisamment fiable du milieu social d'appartenance au moment des enquêtés.
+
+Dans le but de réduire le nombre de modalités, nous avons décidé de procéder au regroupement tel qu'illustré dans la Table (\ref{calssesocio}).
+\begin{table}[H]
+    \centering
+    \begin{tabular}{l|l}
+        \toprule
+        \textbf{Secteur d'activité} & \textbf{PCS} \\
+        \midrule
+        Primaire & Ouvriers et Agriculteurs \\
+        Secondiare & Artisans, commerçants, professions intermédiaires et employés \\
+        Tertiaire & Chefs d'entreprises et cadres \\
+        Sans Secteur & Sans profession et non concernés \\
+        \bottomrule
+    \end{tabular}
+    \caption{Regroupement des PCS en catégories sociales}
+    \label{calssesocio}
+\end{table}
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.75\textwidth]{derniers_graphs/social/rep_secteur.png}
+    \caption{Répartition du secteur d'activité de travail du père}
+    \subcaption*{Champ : Jeunes français âgés de 17 à 19 ans. \\
+    Note de Lecture : Un 40 \% des enquêtésont leur père travaillant dans le secteur tertiaire. \\
+             Source : Enquête ESCAPAD 2017.}
+    \label{fig:Sociofig33}
+\end{figure}
+
+Dans la Figure (\ref{fig:Sociofig33}), environ 40 \% de la population provient du secteur tertiaire. En ce qui concerne le secteur primaire, moins de 15 \% des individus en sont issus.
+
+
+
+\begin{figure}[H]
+  \centering
+  \includegraphics[width=0.75\textwidth]{derniers_graphs/social/tab_secteur.png} 
+  \caption{Tableau croisé du secteur d'activité du pére en fonction de la consommation d'alcool}
+  \subcaption*{Champ : Jeunes français âgés de 17 à 19 ans. \\
+             Note de Lecture : Parmi les individus dont leur père travail au secteur secondaire, un 48\% d'entre eux à une consommation d'alcool modérée. \\
+             Source : Enquête ESCAPAD 2017.}
+
+  \label{fig:sociofig2}
+\end{figure}
+
+Dans la figure (\ref{fig:sociofig2}), le secteur primaire est surreprésenté dans les modalités de consommation d'alcool. Il en va de même pour le secteur tertiaire, mais cette surreprésentation se concentre principalement sur la consommation modérée. Cela semble indiquer que les individus issus de ces deux secteurs sont également exposés à la consommation d'alcool, mais la manière de consommer l'alcool est bien différente. En ce qui concerne le secteur secondaire et les individus sans secteur, leur consommation d'alcool est proportionnellement moindre.
+
+Cette disparité dans les habitudes de consommation d'alcool entre les secteurs d'activité peut être attribuée à divers facteurs socio-économiques et culturels. Les jeunes issus de familles appartenant aux secteurs tertiaire et primaire peuvent être exposés à des contextes sociaux où la consommation d'alcool est plus courante ou socialement acceptée, contrairement à ceux issus du secteur secondaire.
+
+\subsection{Conclusion}
+Le fait de suivre un certain type de formation ou d'être issu d'un certain secteur d'activité semble être corrélé à une consommation plus ou moins importante d'alcool. Ainsi, le lecteur pourrait se demander s'il existe des corrélations entre le secteur d'activité et la situation économique des individus, et quel est l'origine de chacune.
+
+Il serait donc intéressant de mener des études plus approfondies pour comprendre les mécanismes sous-jacents à ces observations, notamment en examinant les facteurs familiaux, culturels et économiques qui pourraient influencer les choix de consommation d'alcool chez les jeunes.
+
+\section{Analyse Multivariée}
+\subsection{Analyse des Correspondances Multiples}
+Cette section réalise une Analyse des Correspondances Multiples (ACM) des variables analysées dans les parties précédentes, dont les modalités sont rappelées dans le tableau qui suit :
+\begin{table}[H]
+    \centering
+    \begin{tabular}{l|p{10.5cm}}
+        \toprule
+        \textbf{Variable} & \textbf{Modalités} \\
+        \midrule
+        Source principale de revenu & Argent de poche, argent occasionnel, salaire, rémunération stage et sans source de revenu \\
+        Consommation d’Alcool & Pas de consommation, modérée et élevée \\
+        Catégorie IMC &  Poids normal et problème de poids \\
+        Pensées suicidaires & Présence de pensées suicidaires et abscence de pensées suicidaires \\
+        État de santé & Bon état de santé et pas en bonne santé \\
+        Situation scolaire  & Lycéen et formation (non-lycéen)\\
+        Secteur d'activité & Primaire, secondaire, tertiaire et sans secteur \\
+        
+        \bottomrule
+    \end{tabular}
+    \caption{Variables et modalités utilisées dans l'ACM}
+    \label{varACM}
+\end{table}
+
+Lors de la réalisation de l'ACM, il est observé que le premier plan factoriel présente une variance expliquée d'environ 29 \%. Par conséquent, le deuxième plan factoriel est également utilisé pour atteindre une variance expliquée totale d'environ 51 \% (voir annexe (\ref{fig:annexe1}) pour plus de détails).
+
+Voici la répartition des modalités les plus représentées dans le premier plan:
+
+\begin{figure}[H]
+  \centering
+  \includegraphics[width=0.85\textwidth]{derniers_graphs/acm/acm_mod_dim1_2.png} 
+  \caption{Répartition des modalités les plus représentées dans le premier plan factoriel}
+  \label{fig:acm1}
+  \subcaption*{Champ : Jeunes français âgés de 17 à 19 ans. \\
+             Source : Enquête ESCAPAD 2017.}
+\end{figure}
+Dans la Figure (\ref{fig:acm1}), le premier axe semble représenter les individus suivant une formation et recevant un salaire de travail. Cet axe semble mesurer le degré d'indépendance ou d'autonomie des individus par rapport à leurs tuteurs légaux.  Le deuxième axe est caractérisé par les problèmes de poids, les pensées suicidaires et un mauvais état de santé. Il discrimine donc les individus en fonction de leur hygiène de vie.
+La répartition des individus sur ce plan est la suivante :
+
+\begin{figure}[H]
+  \centering
+  \includegraphics[width=0.85\textwidth]{derniers_graphs/acm/acm_ind_dim1_2.png} 
+  \caption{Répartition des individus sur le premier plan factoriel}
+  \subcaption*{Champ : Jeunes français âgés de 17 à 19 ans. \\
+
+             Source : Enquête ESCAPAD 2017.}
+  \label{fig:ind1}
+\end{figure}
+
+Il semble que dans (\ref{fig:ind1}), les individus se divisent en trois groupes selon leur niveau d'autonomie. À l'intérieur de ces groupes, deux sous-groupes se distinguent par leur degré d'autonomie variable. Remarquons que parmi ces trois groupes, une tendance vers une hygiène de vie moins bonne se dessine à mesure que l'autonomie des individus augmente. Cette relation semble suivre une progression linéaire, avec un coefficient de proportionnalité similaire pour les trois groupes, bien que le biais diffère nettement.
+
+Passons maintenant au deuxième plan factoriel, lequel présente une variance expliquée de 23\%.
+\begin{figure}[H]
+  \centering
+  \includegraphics[width=0.85\textwidth]{derniers_graphs/acm/acm_mod_dim3_4.png} 
+  \caption{Répartition des modalités les plus représentées dans le deuxième plan factoriel}
+  \subcaption*{Champ : Jeunes français âgés de 17 à 19 ans. \\
+             Source : Enquête ESCAPAD 2017.}
+  \label{fig:acm2}
+\end{figure}
+
+Dans ce deuxième plan factoriel (\ref{fig:acm2}), l'axe des abscisses est caractérisé négativement par des modalités telles que le manque de revenu, les problèmes de poids et l'absence de consommation d'alcool, tandis qu'il est positivement caractérisé par des modalités telles que le fait de ne pas être en bonne santé, les pensées suicidaires, une consommation élevée et modérée d'alcool, ainsi que le fait d'avoir une rémunération de stage comme principale source de revenu. Cette disposition suggère que, sur cet axe, les individus à gauche ont tendance à souffrir davantage sur le plan physique, tandis qu'à droite, les souffrances semblent plutôt être d'ordre psychologique.
+
+En ce qui concerne l'axe des ordonnées, il est caractérisé uniquement par les modalités de revenu. Ainsi, cet axe peut être interprété comme représentant le type ou la source de revenu principale.
+
+Concernant la répartition des individus :
+
+\begin{figure}[H]
+  \centering
+  \includegraphics[width=0.85\textwidth]{derniers_graphs/acm/acm_ind_dim3_4.png} 
+  \caption{Répartition des individus sur le premier plan factoriel}
+  \label{fig:ind2}
+  \subcaption*{Champ : Jeunes français âgés de 17 à 19 ans. \\
+             Source : Enquête ESCAPAD 2017.}
+\end{figure}
+
+Cette fois-ci (\ref{fig:ind2}), quatre groupes d'individus semblent se distinguer graphiquement. Contrairement à ce qui a été observé dans le plan précédent (voir Figure \ref{fig:ind1}), il n'y a pas de relation de proportionnalité évidente entre les valeurs en abscisse et en ordonnée des individus. Il semble donc que les facteurs explicatifs des axes soient indépendants.
+
+\subsection{Classification des Individus} \label{classification}
+Dans cette partie, l'objectif consiste à classifier les individus afin d'identifier les caractéristiques communes qu'ils partagent. Pour ce faire, l'algorithme des k-moyennes sera utilisé. La classification des individus en 4 groupes a été choisie (pour plus de détails, voir l'annexe (\ref{fig:annexe2})). Les résultats de la répartition dans le premier plan factoriel sont les suivants :
+\begin{figure}[H]
+  \centering
+  \includegraphics[width=0.81\textwidth]{derniers_graphs/classification/ind_classes_1_2.png} 
+  \caption{Répartition des individus sur le premier plan factoriel coloriés en fonction des classes}
+  \subcaption*{Champ : Jeunes français âgés de 17 à 19 ans. \\
+             Source : Enquête ESCAPAD 2017.}
+  \label{fig:class1}
+\end{figure}
+
+Dans (\ref{fig:class1}), la classe 1 est principalement caractérisée par des individus ayant une hygiène de vie relativement médiocre et, de manière générale, une faible autonomie. En revanche, la classe 2 se distingue par des individus ayant une bonne hygiène de vie et une relative autonomie. Quant aux autres classes, elles semblent présenter une hygiène de vie relativement bonne et une dépendance assez marquée à l'égard de leurs parents.
+
+Regardons maintenant le deuxième plan :
+
+\begin{figure}[H]
+  \centering
+  \includegraphics[width=0.81\textwidth]{derniers_graphs/classification/ind_classes_3_4.png} 
+  \caption{Répartition des individus sur le deuxième plan factoriel coloriés en fonction des classes}
+  \subcaption*{Champ : Jeunes français âgés de 17 à 19 ans. \\
+             Source : Enquête ESCAPAD 2017.}
+  \label{fig:class2}
+\end{figure}
+
+Dans (\ref{fig:class2}), la classe 1 est présente dans les quatre nuages de points mentionnés dans le graphique. Elle n'est donc pas caractérisée par le type de revenu.
+
+Concernant la classe 3, elle est exclusivement composée d'individus dont la principale source de revenu est la rémunération de stage, et la répartition des problèmes de santé est relativement hétérogène au sein de cette classe. Les individus appartenant aux classes 3 et 4 se répartissent dans les trois nuages restants sans suivre un schéma particulier observable.
+
+On remarque que les clusters trouvés ne sont pas ceux qui étaient évidents lors de l'observation graphique du nuage de points en annexe.
+
+Examinons maintenant comment varie la consommation d'alcool entre ces classes:
+\begin{figure}[H]
+  \centering
+  \includegraphics[width=0.75\textwidth]{derniers_graphs/classification/tab_alcool_classes.png} 
+  \caption{Tableau croisé des classes issues du clustering en fonction de la consommation d'alcool}
+  \subcaption*{Champ : Jeunes français âgés de 17 à 19 ans. \\
+             Note de Lecture : Parmi les individus de la classe 2, un 46\% d'entre eux à une consommation d'alcool modérée. \\
+             Source : Enquête ESCAPAD 2017.}
+  \label{fig:class3}
+\end{figure}
+
+Dans (\ref{fig:class3}), les individus des classes 2 et 3 ont tendance à consommer légèrement plus d'alcool que le reste de la population, tandis que ceux des classes 1 et 4 tendent à en consommer de manière plus modérée.
+
+Ces deux premières catégories sont principalement caractérisées par le type de revenu principal : salaire et formation pour la classe 2, et rémunération de stage pour la classe 3. Il semblerait donc que chez les jeunes, le principal facteur d'influence quant à la consommation d'alcool soit le fait de percevoir certains types de revenu : le salaire et l'argent reçu lors d'un stage semblent influencer positivement la consommation d'alcool, tandis que le fait de ne pas avoir de source de revenu semble influencer négativement la consommation d'alcool (voir \ref{fig:annexe4} et \ref{fig:annexe5}).
+
+D'autre part, les personnes avec une qualité de vie médiocre et une faible autonomie (classe 1, voir \ref{fig:annexe6}) consomment généralement le même alcool que la moyenne de la population. Ainsi, comme les résultats de l'analyse bivariée l'indiquaient, chez les jeunes, il ne semble pas y avoir de corrélation entre une mauvaise hygiène de vie et une consommation élevée d'alcool.
+
+Concernant la classe 4, il n'y a pas de caractéristique commune des individus qui soit particulièrement plus présente que dans la moyenne de la population (voir Figure \ref{fig:annexe6}).
+
+Il est possible de conjecturer que les jeunes percevant un salaire ou de l'argent lors d'un stage pourraient avoir une disponibilité financière accrue, les incitant potentiellement à une consommation plus abusive d'alcool. En revanche, l'absence de revenu chez certains jeunes pourrait constituer une contrainte financière, les rendant moins enclins à en consommer. Par ailleurs, bien que la qualité de vie et l'autonomie ne semblent pas être directement liées à la consommation d'alcool, d'autres facteurs socio-économiques pourraient influencer cette relation de manière indirecte. Dans l'annexe (\ref{ann:classif2}), une autre méthode de classification est utilisée, les resultats obtenus sont trés similaires.
+
+\subsection{Conclusion}
+
+Il semble qu'une consommation d'alcool plus élevée est présente chez les classes qui se distinguent principalement par leur type de revenu principal. Cependant, il est intéressant de noter que l'hygiène de vie et l'appartenance à une certaine classe sociale ne semblent pas être corrélées à des niveaux spécifiques de consommation d'alcool.
+
+
+
+\section{Conclusion}
+Cette étude s'est penchée sur la consommation d'alcool chez les jeunes et son impact sur leur qualité de vie en explorant trois aspects majeurs : la santé physique et mentale, la situation financière personnelle, et les relations sociales. En analysant ces dimensions, l'objectif était de mieux comprendre les liens entre l'état de santé, les situations financières et le contexte social des jeunes, et leur consommation d'alcool.
+Ainsi, cette étude a permis une meilleure appréhension des caractéristiques de la consommation d'alcool chez les jeunes, ainsi qu'une compréhension plus claire des mécanismes et des impacts de cette consommation d'alcool sur leur vie quotidienne des jeunes d'entre 17 et 19 ans.
+L'étude se concentre sur trois aspects principaux de la vie quotidienne des répondants de l'enquête ESCAPAD. En premier lieu, les variables associées à la situation économique des individus, telles que la principale source de revenu, elles présentent une corrélation significative. Plus précisément, les individus percevant des rémunérations de stages ou un salaire de travail ont tendance à consommer davantage plus d'alcool que la moyenne.
+De plus, les non-lycéens ont été identifiés comme consommant nettement plus d'alcool, ce qui souligne l'importance de l'aspect social dans la consommation d'alcool. Cependant, le secteur d'activité du pére n'a pas montré de lien significatif avec la consommation d'alcool.
+En ce qui concerne les aspects qui ne sont pas fortement liés à la consommation d'alcool, nous avons constaté que les variables relatives à la santé physique et mentale, telles que les pensées suicidaires et la catégorie d'indice de masse corporelle, ne présentaient pas de d'impact significatif avec celle-ci.
+Dans l'analyse multivariée, ces observations sont confirmées. Les groupes présentant une propension à adopter un mode de vie moins sain affichent des niveaux de consommation d'alcool similaires à la moyenne. Cependant, les individus percevant un salaire, en particulier les non-lycéens et ceux recevant une rémunération de stage, tendent à avoir des niveaux de consommation d'alcool plus élevés que la moyenne.
+Il est important de noter qu'aucune classe issue du clustering n'était caractérisée par un secteur d'activité, soulignant ainsi que la consommation d'alcool est influencée par une combinaison de facteurs économiques et sociaux individuels.
+ \\
+\begin{center}
+    ***
+\end{center}
+Finalement, en ne prenant compte que ces variables, il est difficile de caractériser la consommation d'alcool chez les jeunes avec d’autres variables que celle du revenu.  Ainsi, il est difficile de catégoriser de manière précise les consommateurs d’alcool dans notre population, ce qui montre la complexité relative du sujet.
+Néanmoins, certaines caractéristiques des données ont limité la portée de cette étude. La limite la plus contraignante est liée à la faible amplitude d’âge des enquêtés, en effet plusieurs problèmes liés à l'alcool sur les plans économiques, sanitaires et sociaux semblent se manifester au long terme. Par exemple, un jeune de 19 ans ne présentera probablement pas de complications de santé liées à une consommation d'alcool très élevée à cet âge, mais il pourrait rencontrer de nombreux problèmes dans 15 ou 20 ans. Il serait donc intéressant de pouvoir se projeter dans le futur car on pourrait réparer la plupart des effets néfastes de l'alcool ainsi que voir comment la consommation des individus à évoluée.  
+Une autre limitation est liée à la structure des données. Nous disposons seulement d'un ensemble de données spécifique, alors que d'autres variables pourraient contenir des informations pertinentes susceptibles d'enrichir notre étude. Par exemple, il aurait été intéressant d'examiner l'influence de l'âge auquel la première consommation d'alcool a eu lieu sur la qualité de vie ultérieure, ou encore de comprendre comment la culpabilité associée à la consommation d'alcool peut influencer la santé mentale. D'autres variables, comme la participation à des campagnes de sensibilisation à l'alcool, absentes dans l'ensemble de données, pourraient également fournir des informations essentielles pour mieux appréhender les problèmes de consommation d'alcool.
+
+
+
+\newpage
+
+
+\section{Bibliographie}
+\singlespacing
+\renewcommand{\refname}{} %enlève le "Références"
+
+\begin{thebibliography}{99}
+\normalsize
+% Exemple pour la bibliographie  \
+% \bibitem[numero]{motclé} où le numéro est le numéro dans la bibliographie et le motclé permettra de faire référence au numéro avec la typographie \cite{motclé} 
+
+\bibitem[1]{article1} Estelle Le Borgès \textit{La Consommation d'Alcool par les jeunes : un sujet primordial des politiques publiques} SciencesPo Rennes, 2019 \\
+
+
+\bibitem[2]{article2} C. Bonaldi et C. Hill \textit{La Mortalité Attribuabe à l'Alcool en France 2015} Bull Epidémiol, 2019 \\
+
+\bibitem[3]{article3} Nussbaum Martha  et Sen Amartya \textit{The Quality of Life } University of Chicago, 1993. \\
+
+\bibitem[4]{article4} Fabián Lanuza, Gladys Morales, Carlos Hidalgo-Rasmussen, Teresa BalboaCastillo, Manuel S. Ortiz, Carlos Belmar et Sergio Muñoz\textit{Association between eating habits and quality of
+life among Chilean university students} Taylor \& Francis Group, 2020. \\
+
+\bibitem[5]{article5} Thomas J. Dinzeo, Umashanger Thayasivam et
+Eve M. Sledjeski \textit{The Development of the Lifestyle and Habits
+Questionnaire-Brief Version: Relationship to Quality
+of Life and Stress in College Students}. \\
+
+\bibitem[6]{article6} Annie Feyfant \textit{Les effets de l’éducation familiale sur la réussite scolaire} ENS Lyon, 2014.
+
+\bibitem[7]{article7} Carmen Sayon-Orea, Miguel A Martinez-Gonzalez, and Maira Bes-Rastrollo \textit{Alcohol consumption and body weight: a systematic review}
+Nutrition Reviews, Volume 69, Issue 8, 1 August 2011, Pages 419–431, 2011
+
+\end{thebibliography}
+\newpage
+\section{Annexe}
+\subsection{Commentaire Bibliographique}
+Dans société contemporaine, la tendance à la surconsommation s'intensifie, où l'acte d'acheter et de posséder semble être devenu un pilier central de notre mode de vie. Il est donc normal de penser que cette tendance influe d'une certaine façon notre manière de vivre et de façon plus large la qualité de notre vie. Au cours de notre analyse, il est crucial de reconnaître la subjectivité du concept de "qualité de vie". Pour certains, la richesse matérielle peut sembler être un indicateur prépondérant de bien-être, alors que pour d'autres, rien n'est plus essentiel que la santé, tant physique que mentale. En abordant le domaine de la consommation, il convient de souligner sa nature polymorphe, englobant une pléthore d'éléments. Dans le cadre de notre étude, nous avons choisi de focaliser notre attention sur un aspect spécifique de la consommation : la consommation d'alcool. Ce sujet a suscité l'intérêt de nombreux chercheurs, qui ont entrepris d'explorer ses multiples dimensions et ramifications comme \cite{article1}. \\
+
+
+Le mémoire examine le problème de la consommation d'alcool chez les jeunes, soulignant son importance en tant que question de santé publique cruciale. La première section met en lumière les risques immédiats associés à une consommation excessive d'alcool chez les adolescents, notamment les comportements sexuels à risque, la violence, les accidents de la route, les hospitalisations et les comas éthyliques, ainsi que les impacts sur la santé mentale. Ensuite, il explore les risques à long terme, tels que les impacts cérébraux, les pathologies associées à l'âge adulte et le coût social élevé.
+La deuxième partie analyse les motivations de la consommation d'alcool chez les jeunes, en s'appuyant sur des données empiriques et des études de cas. Elle met en évidence l'attrait de la consommation d'alcool chez les jeunes et examine les motivations spécifiques révélées par le Baromètre de Santé publique France 2017. De plus, elle explore les mécanismes de contrôle de la consommation d'alcool par les pairs et la maîtrise de soi.
+Ce document revêt une importance significative pour notre étude, fournissant une base solide pour la comparaison de nos résultats, notamment du fait de notre intérêt porté à une population similaire. Il met en lumière l'impact de la consommation d'alcool sur la qualité de vie des jeunes, soulignant les risques pour leur vie sociale, ainsi que pour leur santé physique, comme les risques de comas, et mentale. Une corrélation notable semble émerger entre une consommation excessive d'alcool et une détérioration de la qualité de vie chez les jeunes \cite{article2}. \\
+
+
+Cette étude  vise à actualiser l'estimation de la mortalité causée par la consommation d'alcool en France métropolitaine pour l'année 2015, en utilisant les données de mortalité disponibles à partir de données d'enquêtes et de ventes, la distribution de la consommation d'alcool dans la population est estimée selon le sexe, l'âge et le niveau de consommation. Les risques associés à chaque cause de décès affectés par la consommation d'alcool sont extraits de méta-analyses et combinés avec les prévalences de consommation pour calculer les fractions de mortalité attribuables à l'alcool pour chaque cause. En 2015, il est estimé que 41 000 décès sont attribuables à l'alcool, dont 30 000 chez les hommes et 11 000 chez les femmes, représentant respectivement 11\% et 4\% de la mortalité des adultes de 15 ans et plus. Ces décès incluent ceux dus aux cancers, aux maladies cardiovasculaires, aux maladies digestives, aux causes externes telles que les accidents ou les suicides, ainsi qu'à d'autres maladies telles que les troubles mentaux ou du comportement. La fraction de mortalité attribuable à l'alcool pour l'ensemble des pathologies associées représente jusqu'à 15\% des décès chez les 35-64 ans. La conclusion met en évidence que malgré une diminution globale de la consommation d'alcool en France depuis les années 1950, elle reste responsable de 7\% des décès chez les adultes de plus de 15 ans en 2015, soulignant ainsi l'importance des politiques de santé publique visant à réduire cette consommation.
+Une fois de plus, cet article met en lumière la corrélation entre la consommation d'alcool et un éventail de maladies physiques et mentales, ce qui augmente également le risque d'accidents de la route fatals. Cette corrélation met en évidence l'impact significatif de la consommation d'alcool sur la santé publique.
+
+
+
+\newpage
+\subsection{Figures Complémentaires Analyse Multivariée.}
+
+\begin{figure}[H]
+  \centering
+  \includegraphics[width=0.8\textwidth]{derniers_graphs/annexes/contribution_valeurs_propres.png} 
+  \caption{Variance explicative cumulée de l'ACM }
+  \label{fig:annexe1}
+  \subcaption*{Champ : Jeunes français âgés de 17 à 19 ans. \\
+  Note de Lecture : La dimension 4 de l'ACM a une variance explicative cumulée d'environ 50 \%.
+            \\ Source : Enquête ESCAPAD 2017.}
+\end{figure}
+
+\begin{figure}[H]
+  \centering
+  \includegraphics[width=0.8\textwidth]{derniers_graphs/annexes/inertie_kmeans.png} 
+  \caption{Evolution de l'inertie par nombre de classes du k-moyennes }
+  
+  \label{fig:annexe2}
+  \subcaption*{Champ : Jeunes français âgés de 17 à 19 ans. \\
+Note de Lecture : L'inertie diminue rapidement en fonction du nombre de classes. Pour quatre classes, on observe une inertie d'environ 3200.
+             \\Source : Enquête ESCAPAD 2017.}
+\end{figure}
+\newpage
+
+\subsection{Figures Complémentaires Caracterisation des Classes}
+
+\begin{figure}[H]
+  \centering
+  \includegraphics[width=\textwidth]{derniers_graphs/classification/rep_c1.png} 
+  \caption{Écart de l'ensemble des modalités de la classe 1 par rapport à la moyenne des enquêtés}
+  \label{fig:annexe3}
+  \subcaption*{Champ : Jeunes français âgés de 17 à 19 ans. \\
+  Note de Lecture : Les individus de la classe 1 présentent une sur-représentation de la modalité "pensées suicidaires" dépassant les 60 \%.
+             \\Source : Enquête ESCAPAD 2017.}
+\end{figure}
+\begin{figure}[H]
+  \centering
+  \includegraphics[width=\textwidth]{derniers_graphs/classification/rep_c2.png} 
+  \caption{Écart de l'ensemble des modalités de la classe 2 par rapport à la moyenne des enquêtés}
+  \subcaption*{Champ : Jeunes français âgés de 17 à 19 ans. \\
+  Note de Lecture : Les individus de la classe 2 présentent une sous-représentation de la modalité "lycéen" dépassant les 75 \%.
+             \\Source : Enquête ESCAPAD 2017.}
+  \label{fig:annexe4}
+  
+\end{figure}
+\begin{figure}[H]
+  \centering
+  \includegraphics[width=\textwidth]{derniers_graphs/classification/rep_c3.png} 
+  \caption{Écart de l'ensemble des modalités de la classe 3 par rapport à la moyenne des enquêtés}
+  \subcaption*{Champ : Jeunes français âgés de 17 à 19 ans. \\
+  Note de Lecture : Les individus de la classe 3 présentent une sous-représentation de la modalité "argent de poche" dépassant les 40 \%.\\
+             Source : Enquête ESCAPAD 2017.}
+  \label{fig:annexe5}
+\end{figure}
+\begin{figure}[H]
+  \centering
+  \includegraphics[width=\textwidth]{derniers_graphs/classification/rep_c4.png} 
+  \caption{Écart de l'ensemble des modalités de la classe 4 par rapport à la moyenne des enquêtés}
+  \subcaption*{Champ : Jeunes français âgés de 17 à 19 ans. \\
+Note de Lecture : Les individus de la classe 4 présentent une sur-représentation de la modalité "argent de poche" d'environ 10 \%.
+  \\
+             Source : Enquête ESCAPAD 2017.}
+  \label{fig:annexe6}
+\end{figure}
+\newpage 
+\subsection{Deuxième Méthode de Classification} \label{ann:classif2}
+Dans cette section, on présente les résultats de classification obtenus en utilisant la fonction R \textit{Mclust}.
+
+\begin{figure}[H]
+  \centering
+  \includegraphics[width=\textwidth]{annexe_classif/inertie_mcluster.png} 
+  \caption{Évolution de l'inertie suivant diverses méthodes de classification}
+  \subcaption*{Champ : Jeunes français âgés de 17 à 19 ans. \\Note de Lecture : La méthode de classification EEE présente un coefficient BIC qui reste plus ou moins constant jusqu'à trois classes, où il augmente de façon soutenue.
+\\             Source : Enquête ESCAPAD 2017.}
+  \label{fig:annexe11}
+\end{figure}
+Suite aux observations de la figure (\ref{fig:annexe11}), la classification est faite en 7 classes. Voici leur disposition sur les plans factoriels :
+
+\begin{figure}[H]
+  \centering
+  \includegraphics[width=\textwidth]{annexe_classif/mclust_coef.png} 
+  \caption{Répresentation des individus sur les axes factoriels colorisés par classe}
+  \subcaption*{Champ : Jeunes français âgés de 17 à 19 ans. \\
+        Source : Enquête ESCAPAD 2017.}
+  \label{fig:annexe12}
+\end{figure}
+Dans la figure (\ref{fig:annexe12}), la répartition des classes semble plus proche des classes observées graphiquement que de celles obtenues dans (\ref{classification}) par la méthode des k-moyennes.
+\begin{figure}[H]
+  \centering
+  \includegraphics[width=0.75\textwidth]{annexe_classif/conso_alcol.png} 
+  \caption{Tableau croisé des classes issues du clustering en fonction de la consommation d'alcool}
+  \subcaption*{Champ : Jeunes français âgés de 17 à 19 ans. \\
+  Note de Lecture : Parmi les individus de la classe 6, un 54\% d’entre eux à une consommation
+d’alcool modérée.\\
+             Source : Enquête ESCAPAD 2017.}
+  \label{fig:annexe13}
+\end{figure}
+La figure (\ref{fig:annexe13}) suggère que les individus appartenant aux classes 3 et 5 sont ceux qui consomment le plus d'alcool par rapport à l'ensemble de la population. En revanche, les classes 2 et 4 semblent en consommer moins.
+\begin{figure}[H]
+  \centering
+  \includegraphics[width=\textwidth]{annexe_classif/rep_c1.png} 
+  \caption{Écart de l’ensemble des modalités de la classe 1 par rapport à la moyenne des enquêtés}
+  \subcaption*{Champ : Jeunes français âgés de 17 à 19 ans. \\
+Note de Lecture : Les individus de la classe 1 présentent une sur-représentation de la modalité "argent de poche" dépassant les 50 \%.
+  \\
+             Source : Enquête ESCAPAD 2017.}
+  \label{fig:annexe21}
+\end{figure}
+\begin{figure}[H]
+  \centering
+  \includegraphics[width=\textwidth]{annexe_classif/rep_c2.png} 
+  \caption{Écart de l’ensemble des modalités de la classe 2 par rapport à la moyenne des enquêtés}
+  \subcaption*{Champ : Jeunes français âgés de 17 à 19 ans. \\
+Note de Lecture : Les individus de la classe 2 présentent une sur-représentation de la modalité "sans revenu" dépassant les 80 \%.
+  \\             Source : Enquête ESCAPAD 2017.}
+  \label{fig:annexe22}
+\end{figure}
+\begin{figure}[H]
+  \centering
+  \includegraphics[width=\textwidth]{annexe_classif/rep_c3.png} 
+  \caption{Écart de l’ensemble des modalités de la classe 3 par rapport à la moyenne des enquêtés}
+  \subcaption*{Champ : Jeunes français âgés de 17 à 19 ans. \\
+Note de Lecture : Les individus de la classe 3 présentent une sur-représentation de la modalité "argent de poche" dépassant les 50 \%.
+  \\             Source : Enquête ESCAPAD 2017.}
+  \label{fig:annexe23}
+\end{figure}
+
+\begin{figure}[H]
+  \centering
+  \includegraphics[width=\textwidth]{annexe_classif/rep_c4.png} 
+  \caption{Écart de l’ensemble des modalités de la classe 4 par rapport à la moyenne des enquêtés}
+  \subcaption*{Champ : Jeunes français âgés de 17 à 19 ans. \\
+            Note de Lecture : Les individus de la classe 4 présentent une sur-représentation de la modalité "sans revenu" dépassant les 80 \%.
+  \\      Source : Enquête ESCAPAD 2017.}
+  \label{fig:annexe24}
+\end{figure}
+
+\begin{figure}[H]
+  \centering
+  \includegraphics[width=\textwidth]{annexe_classif/rep_c5.png} 
+  \caption{Écart de l’ensemble des modalités de la classe 5 par rapport à la moyenne des enquêtés}
+  \subcaption*{Champ : Jeunes français âgés de 17 à 19 ans. \\
+           Note de Lecture : Les individus de la classe 5 présentent une sur-représentation de la modalité "salaire" dépassant les 75 \%.
+  \\       Source : Enquête ESCAPAD 2017.}
+  \label{fig:annexe25}
+\end{figure}
+
+
+\begin{figure}[H]
+  \centering
+  \includegraphics[width=\textwidth]{annexe_classif/rep_c6.png} 
+  \caption{Écart de l’ensemble des modalités de la classe 6 par rapport à la moyenne des enquêtés}
+  \subcaption*{Champ : Jeunes français âgés de 17 à 19 ans. \\ Note de Lecture : Les individus de la classe 6 présentent une sur-représentation de la modalité "argent occasionnel" dépassant les 75 \%.
+            \\ Source : Enquête ESCAPAD 2017.}
+  \label{fig:annexe26}
+\end{figure}
+
+\begin{figure}[H]
+  \centering
+  \includegraphics[width=\textwidth]{annexe_classif/rep_c7.png} 
+  \caption{Écart de l’ensemble des modalités de la classe 7 par rapport à la moyenne des enquêtés}
+  \subcaption*{Champ : Jeunes français âgés de 17 à 19 ans. \\ Note de Lecture : Les individus de la classe 2 présentent une sur-représentation de la modalité "rémunération stage" dépassant les 75 \%.\\
+             Source : Enquête ESCAPAD 2017.}
+  \label{fig:annexe27}
+\end{figure}
+La classe 3 est caractérisée par un grand nombre d'individus en formation et recevant de l'argent de poche. La classe 5, quant à elle, est caractérisée par des individus en formation également, mais dont la source de revenu principale est le salaire.Ainsi, on constate que le caractère dominant influençant la consommation d'alcool est la situation scolaire et non pas, en première instance, le type de revenu.
+
+La classe 2, quant à elle, est caractérisée par des individus qui n'ont pas de revenu. La classe 4 est caractérisée par des individus sans revenu et en mauvaise santé. Cette fois-ci, le fait de ne pas percevoir de salaire semble être déterminant quant à la non-consommation d'alcool.
+
+
+\end{document}
