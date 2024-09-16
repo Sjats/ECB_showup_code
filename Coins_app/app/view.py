@@ -16,7 +16,7 @@ class MostraMonedesApp:
         self.opcio_seleccionada = tk.StringVar()
         self.path = os.getcwd()
         if os.path.basename(os.getcwd()) != "app_monedes-main":
-            raise ValueError("Not in good place, should be"
+            raise ValueError("Error, fitxer no trobat"
                              ".../app_monedes-main")
 
         self.menu_seleccio()
