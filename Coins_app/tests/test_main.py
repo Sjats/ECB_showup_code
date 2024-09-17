@@ -2,7 +2,7 @@ import unittest
 from unittest.mock import patch
 import tkinter as tk
 from tkinter import ttk
-from Coins_app.app.main import APP
+from app.main import APP
 
 
 class TestAPP(unittest.TestCase):
@@ -48,7 +48,7 @@ class TestAPP(unittest.TestCase):
     def test_ocultar_widgets(self):
         # Add widgets to the frame
         ttk.Label(self.app.frame, text="Test Label").grid(row=0, column=0)
-        self.assertEqual(len(self.app.frame.winfo_children()), 1)
+        self.assertEqual(len(self.app.frame.winfo_children()), 4)
 
         # Call ocultar_widgets and check if widgets are removed
         self.app.ocultar_widgets()

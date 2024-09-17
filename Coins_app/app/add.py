@@ -631,9 +631,6 @@ class Afegir_contingut:
     def connect_database(self):
         # Connect to SQLite database
         path = os.getcwd()
-        if os.path.basename(os.getcwd()) != "app_monedes-main":
-            raise ValueError("Not in good place, should be" +
-                             ".../app_monedes-main")
         conn = sqlite3.connect(path + "/data/bdd_numismatica.db")
         cursor = conn.cursor()
         return conn, cursor

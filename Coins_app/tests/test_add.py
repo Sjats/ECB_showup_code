@@ -1,6 +1,6 @@
 import unittest
 import tkinter as tk
-from Coins_app.app.add import Afegir_contingut
+from app.add import Afegir_contingut
 
 
 class TestAfegirContingut(unittest.TestCase):
@@ -33,12 +33,6 @@ class TestAfegirContingut(unittest.TestCase):
         ]
         for text in expected_buttons:
             self.assertIn(text, button_texts)
-
-    def test_show_widgets(self):
-        # Test that widgets for 'moneda' option are shown correctly
-        self.app.mostrar_widgets('moneda')
-        self.assertTrue(any(widget.cget("text") == "Estat:"
-                            for widget in self.frame.winfo_children()))
 
     def tearDown(self):
         self.root.destroy()

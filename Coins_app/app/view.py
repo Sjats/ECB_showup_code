@@ -15,9 +15,6 @@ class MostraMonedesApp:
         self.final = final
         self.opcio_seleccionada = tk.StringVar()
         self.path = os.getcwd()
-        if os.path.basename(os.getcwd()) != "app_monedes-main":
-            raise ValueError("Error, fitxer no trobat"
-                             ".../app_monedes-main")
 
         self.menu_seleccio()
 
@@ -205,7 +202,7 @@ class MostraMonedesApp:
 
     def populate_treeview_pesetes(self):
         # Connecta amb la base de dades
-        conn = sqlite3.connect("/data/bdd_numismatica.db")
+        conn = sqlite3.connect(self.path + "/data/bdd_numismatica.db")
         cursor = conn.cursor()
 
         try:
@@ -299,7 +296,7 @@ class MostraMonedesApp:
         self.update_scrollregion()
 
     def populate_2002(self):
-        conn = sqlite3.connect("/data/bdd_numismatica.db")
+        conn = sqlite3.connect(self.path + "/data/bdd_numismatica.db")
         cursor = conn.cursor()
 
         try:
@@ -381,7 +378,7 @@ class MostraMonedesApp:
         self.update_scrollregion()
 
     def populate_plata(self):
-        conn = sqlite3.connect("data/bdd_numismatica.db")
+        conn = sqlite3.connect(self.path + "/data/bdd_numismatica.db")
         cursor = conn.cursor()
 
         try:
@@ -441,7 +438,7 @@ class MostraMonedesApp:
 
     def populate_treeview_tot(self):
         # Connecta amb la base de dades
-        conn = sqlite3.connect("/data/bdd_numismatica.db")
+        conn = sqlite3.connect(self.path + "/data/bdd_numismatica.db")
         cursor = conn.cursor()
 
         try:
